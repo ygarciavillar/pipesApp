@@ -1,0 +1,119 @@
+<div class="text-color-layout">
+    <h1>Pipes no tan comunes</h1>
+    <p>Pipes incluidos en Angular - Usualmente en el "Common Module"</p>
+   
+</div>
+
+<div class="p-grid">
+    <div class="p-col-12 p-md-6">
+        <p-fieldset legend="i18nSelect Pipe" 
+                    [toggleable]="true">
+                    <div>
+                        <span ngNonBindable>
+                            {{ value_expression | i18nSelect : mapping }}
+                        </span>
+                        <hr>
+                        <p>Saludos {{nombre}} es un placer
+                        {{genero | i18nSelect: invitacionMap}} en nuestro evento</p>
+                    </div>
+                    <button 
+                            pButton label="Cambiar Persona" 
+                            class="p-button-help"
+                            (click)=cambiarPersona()>
+                    </button>
+            
+        </p-fieldset>
+    </div>
+
+    <div class="p-col-12 p-md-6">
+        <p-fieldset legend="i18nPlural Pipe" 
+                [toggleable]="true">
+                <div>
+                    <span ngNonBindable>
+                        {{ value_expression | i18nPlural : pluralMap [ : locale ] }}
+                    </span>
+                    <hr>
+                    <p>Actualmente {{clientes.length | i18nPlural: clientesMap}} esperando
+                    </p>
+                </div>
+                    <button pButton 
+                        label="Borrar cliente" 
+                        class="p-button-help" 
+                        [disabled]="clientes.length === 0"
+                        (click)=borrarCliente()>
+                </button>
+        </p-fieldset>
+    </div>
+
+    <div class="p-col-12 p-md-6">
+        <p-fieldset legend="Slice Pipe" [toggleable]="true">
+            <div>
+                <span ngNonBindable>
+                    {{ value_expression | slice : start [ : end ] }}
+                </span>
+                <hr>
+
+                <b>Original</b>
+                <pre>{{clientes}}</pre>
+
+                <b>Slice: 0:2</b>
+                <pre>{{clientes | slice:0:2}}</pre>
+
+                <b>Slice: 1:2</b>
+                <pre>{{clientes | slice:1:2}}</pre>
+            </div>
+        </p-fieldset>
+    </div>
+
+    <div class="p-col-12 p-md-6">
+        <p-fieldset legend="KeyValue Pipe" [toggleable]="true">
+            <div>
+                <span ngNonBindable>
+                    {{ input_expression | keyvalue [ : compareFn ] }}
+                </span>
+                <hr>
+                <b>Original</b>
+                <pre>{{persona}}</pre>
+
+                <b>KeyValue Pipe</b>
+                <ul>
+                    <li *ngFor="let item of persona | keyvalue">
+                       <b>{{item.key}}</b> : {{item.value}}
+                    </li>
+                </ul>
+            </div>
+        </p-fieldset>
+    </div>
+
+    <div class="p-col-12 p-md-6">
+        <p-fieldset legend="Json Pipe" [toggleable]="true">
+            <div>
+                <span ngNonBindable>
+                    {{ value_expression | json }}
+                </span>
+                <hr>
+                <b>Original</b>
+                <pre>{{heroes | json}}</pre>
+    
+            </div>
+        </p-fieldset>
+    </div>
+
+    <div class="p-col-12 p-md-6">
+        <p-fieldset legend="Async Pipe" [toggleable]="true">
+            <div>
+                <span ngNonBindable>
+                    {{ obj_expression | async }}
+                </span>
+                <hr>
+                
+              <!-- <pre>{{miObservable | async}}</pre> -->
+              <pre *ngIf="!(valorPromesa | async)">Resolviendo Promesa</pre>
+              <pre>{{valorPromesa | async}}</pre>
+    
+            </div>
+        </p-fieldset>
+    </div>
+</div>
+
+
