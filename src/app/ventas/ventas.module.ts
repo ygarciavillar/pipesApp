@@ -8,16 +8,22 @@ import { NoComunesComponent } from './pages/no-comunes/no-comunes.component';
 import { BasicosComponent } from './pages/basicos/basicos.component';
 import { OrdenarComponent } from './pages/ordenar/ordenar.component';
 
+import { BooleanPipes } from './pipes/boolean.pipe';
+import { MayusculasPipes } from './pipes/mayusculas.pipe';
+import { OrdenarPipes } from './pipes/ordenar.pipe';
+
 
 
 
 @NgModule({
   declarations: [
-    
     NumerosComponent,
     NoComunesComponent,
     BasicosComponent,
-    OrdenarComponent
+    OrdenarComponent,
+    BooleanPipes,
+    MayusculasPipes,
+    OrdenarPipes
   ],
   imports: [
     CommonModule,
